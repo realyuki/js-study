@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>exam</title>
+<link rel="stylesheet" href="common.css" />
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> jQuery library-->
+<script>
+// jQuery default
+// $(document).ready(function(){
+
+// });
+// $(function(){
+
+// });
+
+
+// jQuery code
+// $(function(){
+// 	var examObj1 = $('.exam_wrap:eq(0)');
+// 	examObj1.find('button').on('click', function(){
+// 		examObj1.find('.exam_q *').css('background','yellow');
+// 	});
+// });
+
+// javascript code
+window.onload = function(){
+	var examObj1 = document.getElementsByClassName('exam_wrap')[0];
+	examObj1.getElementsByTagName('button')[0].onclick = function(){
+		var examChild = examObj1.getElementsByClassName('exam_q')[0].querySelectorAll('*');
+		for(var i = 0; i < examChild.length; i++){
+			examChild[i].style.backgroundColor = 'yellow';
+		}
+	};
+}
+</script>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">모든 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("*")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">em의 자손</strong>이면서 <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E F")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">부모(.exam_q)의 바로 아래 자식</strong>이면서 <strong class="point">태그명이 span 인 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E>F")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">div의 형제 Elements</strong>이면서, <strong class="point">바로 다음에 나오는 p Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E+F")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">div의 형제 Elements</strong>이면서, <strong class="point">다음에 나오는 모든 span Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<p>p</p>
+				<span>span</span>
+				<em>em<span>span</span></em>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E~F")</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">클래스명이 active인 모든 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>div</div>
+				<div class="active">div</div>
+				<p class="active">p</p>
+				<span class="active">span</span>
+				<span>span</span>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E.C") E의 생략은 *.C와 동일함.</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">아이디명이 active인 Element</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div id="active">div</div>
+				<div class="active">div</div>
+				<p class="active">p</p>
+				<span class="active">span</span>
+				<span>span</span>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) $("E#I") E의 생략은 *#I와 동일함.</p>
+		</div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+</body>
+</html>

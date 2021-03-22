@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>exam</title>
+<link rel="stylesheet" href="common.css" />
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. 첫번째부터 순서대로 선택하세요 (style 제어)</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+					<li>eight</li>
+				</ul>
+			</div>
+			<button type="button">다음</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 마지막부터 역순대로 선택하세요 (style 제어)</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li>one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+				</ul>
+			</div>
+			<button type="button">이전</button>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. 첫번째부터 순서대로 선택하고, 전에 선택했던 Element의 배경색을 지우세요 (style 제어)</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<ul>
+					<li style="background-color:yellow">one</li>
+					<li>two</li>
+					<li>three</li>
+					<li>four</li>
+					<li>five</li>
+					<li>six</li>
+					<li>seven</li>
+					<li>eight</li>
+					<li>nine</li>
+				</ul>
+			</div>
+			<button type="button">이전</button>
+			<button type="button">다음</button>
+		</div>
+        <div class="exam_wrap">
+            <h1>Q. 첫번째부터 순서대로 선택하고, 전에 선택했던 Element의 배경색을 지우시고, 무한loop 돌게 하세요 (클래스 제어)</h1>
+            <div class="exam_q"><!-- 부모 -->
+                <ul>
+                    <li class="active">one</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                    <li>five</li>
+                    <li>six</li>
+                    <li>seven</li>
+                    <li>eight</li>
+                    <li>nine</li>
+                </ul>
+            </div>
+            <button type="button">이전</button>
+            <button type="button">다음</button>
+        </div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+(function () {
+	'use strict';
+
+})();
+</script>
+</body>
+</html>

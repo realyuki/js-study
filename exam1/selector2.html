@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>exam</title>
+<link rel="stylesheet" href="common.css" />
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+	<!-- header [s] -->
+	<div id="header">
+	</div>
+	<!-- header [e] -->
+	<hr />
+	<!-- container [s] -->
+	<div id="container">
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 첫번째인 모든 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1<em>em</em></div>
+				<div>2<em>em</em></div>
+				<div>3<em>em</em></div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :first / .first()</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 마지막인 모든 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1<em>em</em></div>
+				<div>2<em>em</em></div>
+				<div>3<em>em</em></div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :last / .last()</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">첫번째 자식 Element</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1<em>em</em></div>
+				<div>2<em>em</em></div>
+				<div>3<em>em</em></div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :first-child</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">마지막 자식 Element</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1<em>em</em></div>
+				<div>2<em>em</em></div>
+				<div>3<em>em</em></div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :last-child</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 2번째인 자식 Element</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1</div>
+				<div>2<div>child1</div></div>
+				<div>3<div>child1</div><div>child2</div></div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :nth-child(n)</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 3번째인 Element</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :eq(n) / .eq(n)</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 3번째인 Element 이후의 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :gt(n) / .nextAll()</p>
+		</div>
+		<div class="exam_wrap">
+			<h1>Q. <strong class="point">태그 순서가 3번째인 Element 이전의 Elements</strong>를 선택</h1>
+			<div class="exam_q"><!-- 부모 -->
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+			<button type="button">view</button>
+			<p>Tip) :lt(n) / .prevAll()</p>
+		</div>
+	</div>
+	<!-- container [e] -->
+	<hr />
+	<!-- footer [s] -->
+	<div id="footer">
+	</div>
+	<!-- footer [e] -->
+</div>
+<!-- wrapper [e] -->
+</body>
+</html>

@@ -1,0 +1,15 @@
+@charset "utf-8";
+*{margin:0;padding:0}
+body{font-size:14px;line-height:1.5;color:#555}
+h1,h2,h3,h4,h5,h6{text-align:left}
+button,label{cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+hr{display:none}
+#wrapper{padding:0 10px}
+.exam_wrap{padding:10px 0}
+.exam_wrap h1{margin:5px 0;font-size:1em}
+.exam_wrap div div,
+.exam_wrap div p,
+.exam_wrap div span,
+.exam_wrap div em{border:1px solid green}
+.exam_wrap .point{color:blue}
