@@ -236,7 +236,6 @@ button::-moz-focus-inner{padding:0;border:0}
                 this.hashUpdate();
             },
             hachChangeFunc : function () {
-                if (this.oldIndex === this.currentIndex) return;
                 this.getHash();
                 this.activeTabFunc();
             },
@@ -254,6 +253,7 @@ button::-moz-focus-inner{padding:0;border:0}
                 this.castNumCurrent.text(this.currentIndex + 1);
             },
             activeTabFunc : function () {
+                if (this.oldIndex === this.currentIndex) return;
                 this.castTabChild.eq(this.currentIndex).addClass(this.opts.activeClass);
                 this.castArticle.eq(this.currentIndex).show();
                 this.castTabChild.eq(this.oldIndex).removeClass(this.opts.activeClass);
