@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>exam - thema</title>
+<style>
+/* temporary css */
+*{margin:0;padding:0}
+body{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5}
+h1,h2,h3,h4,h5,h6{font-size:14px}
+ul,li{list-style:none}
+button{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5;cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+.cast_box{width:880px;margin:0 auto;border:1px solid #ccc}
+.cast_tab{}
+.cast_tab ul{zoom:1}
+.cast_tab ul:after{display:block;clear:both;content:''}
+.cast_tab ul li{float:left;width:12.5%;text-align:center}
+.cast_tab ul li a{display:block;padding:10px;border-left:1px solid #ccc;background:#f3f3f3;color:#000;text-decoration:none}
+.cast_tab ul li:first-child a{border-left:0 none}
+.cast_tab ul li.active a{background:#ccc;color:#000}
+.cast_cont{border-top:1px solid #ccc}
+.cast_article{display:none;height:500px}
+.cast_article.active{display:block}
+.cast_setting{padding:10px;border-top:1px solid #ccc;zoom:1}
+.cast_setting:after{display:block;clear:both;content:''}
+.cast_setting .cast_btn{float:left}
+.cast_setting .cast_num{float:right;margin-right:5px}
+.cast_num .total{font-weight:bold}
+
+.slide_box{position:relative;width:880px;margin:0 auto}
+.slide_tab{position:absolute;left:0;bottom:0;right:0;z-index:30;padding:15px 0;font-size:0;line-height:0;text-align:center}
+.slide_tab ul{display:inline-block;vertical-align:top}
+.slide_tab ul li{float:left;margin:0 3px}
+.slide_tab ul li a{display:inline-block;width:12px;height:12px;border-radius:100%;background:#ccc;vertical-align:top}
+.slide_tab ul li.active a{background:#000}
+.slide_cont{overflow:hidden;position:relative;height:440px}
+.slide_article{display:block;position:absolute;left:0;top:0;width:100%;height:440px}
+.slide_article:nth-child(1){background:red}
+.slide_article:nth-child(2){background:orange}
+.slide_article:nth-child(3){background:yellow}
+.slide_article:nth-child(4){background:green}
+.slide_article:nth-child(5){background:blue;color:#fff}
+.slide_article:nth-child(6){background:skyblue;color:#fff}
+.slide_article:nth-child(7){background:navy;color:#fff}
+.slide_article:nth-child(8){background:black;color:#fff}
+.slide_setting{font-size:0;line-height:0}
+.slide_setting .slide_btn button{position:absolute;top:50%;z-index:30;margin:0 20px}
+.slide_setting .slide_btn button:nth-child(1){left:0}
+.slide_setting .slide_btn button:nth-child(2){right:0}
+/* //temporary css */
+</style>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+    <!-- header [s] -->
+    <div id="header">@</div>
+    <!-- header [e] -->
+    <hr />
+    <!-- container [s] -->
+    <div id="container">
+        <div class="cast_box">
+            <div class="cast_tab">
+                <ul>
+                    <li><a href="#thema1">테마1</a></li>
+                    <li><a href="#thema2">테마2</a></li>
+                    <li><a href="#thema3">테마3</a></li>
+                    <li><a href="#thema4">테마4</a></li>
+                    <li><a href="#thema5">테마5</a></li>
+                    <li class="active"><a href="#thema6">테마6</a></li>
+                    <li><a href="#thema7">테마7</a></li>
+                    <li><a href="#thema8">테마8</a></li>
+                </ul>
+            </div>
+            <div class="cast_cont">
+                <div id="thema1" class="cast_article active">컨텐츠1</div>
+                <div id="thema2" class="cast_article">컨텐츠2</div>
+                <div id="thema3" class="cast_article">컨텐츠3</div>
+                <div id="thema4" class="cast_article">컨텐츠4</div>
+                <div id="thema5" class="cast_article">컨텐츠5</div>
+                <div id="thema6" class="cast_article">컨텐츠6</div>
+                <div id="thema7" class="cast_article">컨텐츠7</div>
+                <div id="thema8" class="cast_article">컨텐츠8</div>
+            </div>
+            <div class="cast_setting">
+                <div class="cast_btn">
+                    <button type="button" class="prev">이전</button><button type="button" class="next">다음</button>
+                </div>
+                <div class="cast_num"><span class="current">1</span> / <span class="total">8</span></div>
+            </div>
+        </div>
+
+        <div class="slide_box">
+            <div class="slide_tab">
+                <ul>
+                    <li class="active"><a href="#slide1">테마1</a></li>
+                    <li><a href="#slide2">테마2</a></li>
+                    <li><a href="#slide3">테마3</a></li>
+                    <li><a href="#slide4">테마4</a></li>
+                    <li><a href="#slide5">테마5</a></li>
+                    <li><a href="#slide6">테마6</a></li>
+                    <li><a href="#slide7">테마7</a></li>
+                    <li><a href="#slide8">테마8</a></li>
+                </ul>
+            </div>
+            <div class="slide_cont">
+                <div id="slide1" class="slide_article active">컨텐츠1</div>
+                <div id="slide2" class="slide_article">컨텐츠2</div>
+                <div id="slide3" class="slide_article">컨텐츠3</div>
+                <div id="slide4" class="slide_article">컨텐츠4</div>
+                <div id="slide5" class="slide_article">컨텐츠5</div>
+                <div id="slide6" class="slide_article">컨텐츠6</div>
+                <div id="slide7" class="slide_article">컨텐츠7</div>
+                <div id="slide8" class="slide_article">컨텐츠8</div>
+            </div>
+            <div class="slide_setting">
+                <div class="slide_btn">
+                    <button type="button" class="prev">이전</button><button type="button" class="next">다음</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container [e] -->
+    <hr />
+    <!-- footer [s] -->
+    <div id="footer">@</div>
+    <!-- footer [e] -->
+<!-- [ Javascript Area ] -->
+<!-- Libs -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+(function (global, factory) {
+    global.exam = global.exam || {};
+    global.exam.TabComponent = factory();
+}(window, function () { 'use strict';
+    var TabComponent = (function (isUndefined) {
+        var win = window,
+            $ = window.jQuery;
+
+        function TabComponent (container, args) {
+            var defParams = {
+                obj : container,
+                init : true,
+                castTab : '.cast_tab',
+                castTabParent : 'ul',
+                castCont : '.cast_cont',
+                castArticle : '.cast_article',
+                activeClass : 'active',
+                castNum : '.cast_num',
+                castNumCurrent : '.current',
+                castNumTotal : '.total',
+                castControls : '.cast_btn',
+                castPrev : '.prev',
+                castNext : '.next',
+                customEvent : '.TabComponent' + (new Date()).getTime() + Math.random()
+            };
+            this.opts = $.extend(defParams, (args || {}));
+            if (!this.opts.init) return;
+            this.init();
+        };
+        TabComponent.prototype = {
+            init : function () {
+                if (!(this.obj = $(this.opts.obj)).length) return;
+                this.setElements();
+                this.initLayout();
+                this.bindEvents(true);
+            },
+            setElements : function () {
+                this.castTab = this.obj.find(this.opts.castTab);
+                this.castTabParent = this.castTab.find(this.opts.castTabParent);
+                this.castTabChild = this.castTabParent.children();
+                this.castCont = this.obj.find(this.opts.castCont);
+                this.castArticle = this.castCont.find(this.opts.castArticle);
+                this.castControls = this.obj.find(this.opts.castControls);
+                this.castPrev = this.castControls.find(this.opts.castPrev);
+                this.castNext = this.castControls.find(this.opts.castNext);
+                this.castNum = this.obj.find(this.opts.castNum);
+                this.castNumCurrent = this.castNum.find(this.opts.castNumCurrent);
+                this.castNumTotal = this.castNum.find(this.opts.castNumTotal);
+            },
+            initTotalText : function () {
+                var tabTotal = this.castTabChild.length;
+                this.castNumTotal.text(tabTotal);
+            },
+            initLayout : function () {
+                this.castTabChild.removeClass(this.opts.activeClass);
+                this.castArticle.removeClass(this.opts.activeClass);
+                this.getHash();
+                this.hachChangeFunc();
+                this.initTotalText();
+            },
+            changeEvents : function (event) {
+                var events = [],
+                    eventNames = event.split(' ');
+                for (var key in eventNames) {
+                    events.push(eventNames[key] + this.opts.customEvent);
+                }
+                return events.join(' ');
+            },
+            bindEvents : function (type) {
+                if (type) {
+                    this.castTabChild.on(this.changeEvents('click'), '>a', this.onTabClickFunc.bind(this));
+                    this.castPrev.on(this.changeEvents('click'), this.onPrevFunc.bind(this));
+                    this.castNext.on(this.changeEvents('click'), this.onNextFunc.bind(this));
+                    $(win).on(this.changeEvents('hashchange'), this.hachChangeFunc.bind(this));
+                } else {
+                    this.castTabChild.off(this.changeEvents('click'));
+                    this.castPrev.off(this.changeEvents('click'));
+                    this.castNext.off(this.changeEvents('click'));
+                    $(win).off(this.changeEvents('hashchange'));
+                }
+            },
+            onPrevFunc : function (e) {
+                e.preventDefault();
+                this.currentIndex--;
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.castTabChild.length - 1;
+                }
+                this.hashUpdate();
+            },
+            onNextFunc : function (e) {
+                e.preventDefault();
+                this.currentIndex++;
+                if (this.currentIndex >= this.castTabChild.length) {
+                    this.currentIndex = 0;
+                }
+                this.hashUpdate();
+            },
+            onTabClickFunc : function (e) {
+                e.preventDefault();
+                var target = $(e.delegateTarget),
+                    targetIndex = target.index();
+                this.currentIndex = targetIndex;
+                this.hashUpdate();
+            },
+            hachChangeFunc : function () {
+                this.getHash();
+                this.activeTabFunc();
+            },
+            getHash : function () {
+                var getHash = win.location.hash.replace('_', ''),
+                    hashTarget = this.castArticle.filter(getHash);
+                this.currentIndex = (hashTarget.length) ? hashTarget.index() : 0;
+                this.textUpdate();
+            },
+            hashUpdate : function () {
+                var hashName = this.castArticle.eq(this.currentIndex).attr('id');
+                win.location.hash = '#' + hashName + '_';
+            },
+            textUpdate : function () {
+                this.castNumCurrent.text(this.currentIndex + 1);
+            },
+            activeTabFunc : function () {
+                if (this.oldIndex === this.currentIndex) return;
+                this.castTabChild.eq(this.currentIndex).addClass(this.opts.activeClass);
+                this.castArticle.eq(this.currentIndex).show();
+                this.castTabChild.eq(this.oldIndex).removeClass(this.opts.activeClass);
+                this.castArticle.eq(this.oldIndex).hide();
+                this.oldIndex = this.currentIndex;
+            }
+        };
+        return TabComponent;
+    })();
+    return TabComponent;
+}));
+(function (global, factory) {
+    $(function () {
+        factory();
+    })
+}(window, function () {
+    var Component = (function (isUndefined) {
+        var win = window;
+
+        function Component (args) {
+            var defParams = {
+                obj : '.cast_box'
+            };
+            this.opts = $.extend(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        Component.prototype = {
+            init : function () {
+                this.callComponent();
+            },
+            callComponent : function () {
+                var _this = this;
+                for (var i = 0, max = this.obj.length; i < max; i++) {
+                    (function (index) {
+                        var instance = new win.exam.TabComponent(_this.obj.eq(index), {
+                            init : false
+                        });
+                        instance.init();
+                    })(i);
+                }
+            }
+        };
+        return new Component();
+    })();
+    return Component;
+}));
+</script>
+</div>
+</body>
+</html>

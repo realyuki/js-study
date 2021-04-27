@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>exam - outside</title>
+<style>
+/* temporary css */
+*{margin:0;padding:0}
+body{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5}
+h1,h2,h3,h4,h5,h6{font-size:14px}
+ul,li{list-style:none}
+button{font-size:14px;font-family:"나눔고딕",NanumGothic,"굴림",Gulim,Sans-serif;line-height:1.5;cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+.btn_pos{padding:10px}
+.btn_pos button{margin:0;padding:0;width:100px;height:100px;border:1px solid #ccc;}
+.layer_area{display:none;position:fixed;left:0;top:0;right:0;bottom:0;width:100%;height:100%}
+.layer_area .layer_dimmed{position:absolute;left:0;top:0;right:0;bottom:0;width:100%;height:100%;background:#000;opacity:0.3;filter:alpha(opacity=30);}
+.layer_pos{position:absolute;left:50%;top:50%;width:400px;height:400px;margin:-220px 0 0 -220px;padding:20px;background:#fff}
+.layer_close{position:absolute;right:20px;top:20px}
+/* //temporary css */
+</style>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrapper">
+    <!-- header [s] -->
+    <div id="header">@</div>
+    <!-- header [e] -->
+    <hr />
+    <!-- container [s] -->
+    <div id="container">
+        <div class="js-layer-wrap">
+            <div class="btn_pos js-btn_pos b1"><button>레이어 띄우기1</button></div>
+            <div class="layer_area js-layer_area" style="display:block">
+                <span class="layer_dimmed">&nbsp;</span>
+                <div class="layer_pos">
+                    <ul>
+                        <li>내용1<a href="#">링크</a></li>
+                        <li>내용2</li>
+                        <li>내용3</li>
+                        <li>내용4</li>
+                        <li>내용5</li>
+                    </ul>
+                    <p class="layer_close"><button>닫기</button></p>
+                </div>
+            </div>
+            <div class="btn_pos js-btn_pos b2"><button>레이어 띄우기2</button></div>
+            <div class="btn_pos js-btn_pos b3"><button>레이어 띄우기3</button></div>
+        </div>
+    </div>
+    <!-- container [e] -->
+    <hr />
+    <!-- footer [s] -->
+    <div id="footer">@</div>
+    <!-- footer [e] -->
+</div>
+<!-- [ Javascript Area ] -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="../js/libs/jquery.ba-outside-events.min.js"></script>
+<script src="../js/apps/util.js"></script>
+<script>
+(function (global, factory) {
+    global = global;
+    global.gnbComponent = factory();
+}(window, function () {
+    'use strict';
+    var gnbComponent = (function (isUndefined) {
+        var win = window,
+            Util = win.Common.util;
+
+        function gnbComponent (container, args) {
+            var defParams = {
+                obj : container
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        gnbComponent.prototype = {
+            init : function () {
+                console.log('init');
+            }
+        };
+        return gnbComponent;
+    })();
+    return gnbComponent;
+}));
+(function (global, factory) {
+    global = global;
+    $(function () {
+        factory();
+    })
+}(window, function () {
+    'use strict';
+    var gnbComponent = (function () {
+        var win = window,
+            Util = win.Common.util;
+
+        function gnbComponent (args) {
+            var defParams = {
+                obj : '.js-layer-wrap'
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        gnbComponent.prototype = {
+            init : function () {
+                this.callComponent();
+            },
+            callComponent : function () {
+                var _this = this;
+                for (var i = 0, max = this.obj.length; i < max; i++) {
+                    (function (index) {
+                        var instance = new win.gnbComponent(_this.obj.eq(index));
+                    })(i);
+                }
+            }
+        };
+        return new gnbComponent();
+    })();
+    return gnbComponent;
+}));
+</script>
+</body>
+</html>

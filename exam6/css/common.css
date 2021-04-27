@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* common */
+*{margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{background-color:#fff;font-family:"나눔고딕",NanumGothic,"NanumGothicRegular","굴림",Gulim,Sans-serif;font-size:14px;color:#555;line-height:1.5;-webkit-text-size-adjust:none}
+h1,h2,h3,h4,h5,h6{text-align:left}
+img,fieldset,iframe{border:0 none}
+li{list-style:none}
+a{color:#555;text-decoration:none}
+a:hover{text-decoration:underline}
+em,address{font-style:normal}
+button,label{cursor:pointer}
+input[type=text],input[type=password],input[type=image],textarea{-webkit-appearance:none;-webkit-text-size-adjust:none;-webkit-border-radius:0}
+textarea{overflow:auto}
+select{height:20px;border:1px solid #bfbfbf}
+html:first-child select{height:20px;padding-right:6px}
+option{padding-right:6px}
+.input_text, textarea{#margin:-1px 0;padding-right:1px;border-top:1px solid #d1d1d2;border-right:1px solid #eeeef0;border-bottom:1px solid #eeeef0;border-left:1px solid #d1d1d2}
+hr,caption{display:none}
+legend{*width:0}
+.blind,legend{display:block;overflow:hidden;position:absolute;left:0;top:-5000px}
+
+/* [s] swiper공통 */
+.swiper-container{margin:0 auto;position:relative;overflow:hidden;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;/* Fix of Webkit flickering */ z-index:1}
+.swiper-wrapper{position:relative;width:100%;-webkit-transition-property:-webkit-transform, left, top;-webkit-transition-duration:0s;-webkit-transform:translate3d(0px,0,0);-webkit-transition-timing-function:ease;-moz-transition-property:-moz-transform, left, top;-moz-transition-duration:0s;-moz-transform:translate3d(0px,0,0);-moz-transition-timing-function:ease;-o-transition-property:-o-transform, left, top;-o-transition-duration:0s;-o-transform:translate3d(0px,0,0);-o-transition-timing-function:ease;-o-transform:translate(0px,0px);-ms-transition-property:-ms-transform, left, top;-ms-transition-duration:0s;-ms-transform:translate3d(0px,0,0);-ms-transition-timing-function:ease;transition-property:transform, left, top;transition-duration:0s;transform:translate3d(0px,0,0);transition-timing-function:ease}
+.swiper-free-mode > .swiper-wrapper{-webkit-transition-timing-function:ease-out;-moz-transition-timing-function:ease-out;-ms-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}
+.swiper-slide{float:left}
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal{-ms-touch-action:pan-y}
+.swiper-wp8-vertical{-ms-touch-action:pan-x}
+.swiper-scrollbar{border-radius:10px;position:relative;-ms-touch-action:none;background:rgba(0,0,0,0.1)}
+.swiper-scrollbar-drag{height:100%;width:100%;position:relative;background:rgba(0,0,0,0.5);border-radius:10px}
+.swiper-scrollbar-cursor-drag{cursor:move}
+/* [e] swiper공통 */
+
+#gnb .swiper-container{overflow:visible}
+#gnb .swiper-scrollbar{display:none}
+#gnb .swiper-slide{float:none}
+
+#wrap{width:880px;margin:0 auto;background:#eee}
+#header{position:relative;height:41px;text-align:center}
+h1.logo{position:absolute;left:0;top:0}
+#gnb{display:inline-block;vertical-align:top;*display:inline;zoom:1}
+.gnb_open{display:none}
+.gnb_close{display:none}
+.menu{zoom:1}
+.menu:after{display:block;clear:both;content:''}
+.menu>li{float:left;position:relative;margin-left:20px}
+.menu>li:first-child{margin-left:0}
+.menu>li .btn{display:block;padding:10px}
+.menu .box{display:none;position:absolute;top:100%;left:0;margin-left:-10px;text-align:left;white-space:nowrap}
+.menu .box ul{padding:20px;background:#000;color:#fff}
+.menu .box ul li{margin-top:5px}
+.menu .box ul li:first-child{margin-top:0}
+.menu .box ul a{color:#fff}
+
+@media all and (max-width:768px){
+#gnb .swiper-container{overflow:hidden;height:100%;background:yellow}
+#gnb .swiper-scrollbar{/*display:block;position:absolute;top:3px;bottom:3px;right:3px;width:3px;z-index:10*/}
+#gnb .swiper-wrapper{min-height:100%}
+#gnb .swiper-slide{width:100%}
+
+#wrap{width:auto}
+#gnb{display:block;position:fixed;right:100%;top:0;bottom:0;width:240px;background:yellow;text-align:left}
+.gnb_open{display:block;position:absolute;left:0;top:0;margin:10px 0 0 10px}
+.gnb_open button{width:40px;height:40px;border:0 none;background:skyblue;white-space:nowrap}
+.gnb_close{display:block;position:absolute;right:0;top:0;z-index:100;margin:10px 10px 0 0}
+.gnb_close button{width:40px;height:40px;border:0 none;background:skyblue;white-space:nowrap}
+.gnb_wrap{padding:10px 0}
+.menu>li{float:none;margin:10px 0 0}
+.menu>li:first-child{margin:0}
+.menu>li .btn{display:block;padding:5px 15px}
+.menu .box{display:block;position:static;margin:0;white-space:normal}
+.menu .box ul{padding:0;background:transparent}
+.menu .box ul li{margin:0}
+.menu .box ul a{display:block;padding:5px 15px;color:#000}
+}
