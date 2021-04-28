@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>exam - sticky</title>
+<style>
+/* temporary css */
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,table,th,td,form,fieldset,legend,textarea,input,select,textarea,button,pre{margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{position:relative;min-width:1280px}
+body,input,select,textarea,button,th,td{font-family:'돋움','Dotum',sans-serif,'Apple SD Gothic Neo';font-size:11px;color:#555}
+fieldset,img{border:0 none}
+ul,ol,dl,li{list-style:none}
+li{vertical-align:top}
+hr{display:none}
+input,select,textarea,button{vertical-align:top}
+button,input[type=button]{overflow:visible;border:0;background-color:transparent;cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+button span{position:relative}
+address,caption,em{font-style:normal}
+a{color:#555;cursor:pointer}
+a,a:active,a:hover{text-decoration:none}
+table{border-collapse:collapse;border-spacing:0}
+ins{text-decoration:none}
+/* common */
+.blind,legend,caption span{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:999px;white-space:nowrap}
+.sp,.arr{display:inline-block;overflow:hidden;width:10px;height:10px;background:url(img/sp.png) no-repeat;line-height:999px;vertical-align:top}
+.elp{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bgnone{background:none !important}
+/* 개발 요청 : 카드섹션간 margin 조절 */
+.margin_none{margin-top:10px !important}
+.sectionGroup .margin_none:first-child{margin-top:0 !important}
+/* layout */
+#wrap{overflow:hidden;min-width:1280px;min-height:100%;background:#f4f4f4}
+#content{position:relative;min-height:100%;width:940px;margin:0 auto;padding:20px 0 100px}
+/* header */
+#header{position:relative;z-index:105;height:138px;background:#191919}
+/* GNB */
+#gnb{position:relative;margin-top:21px;border-top:1px solid #313131}
+/* footer */
+#footer{position:relative;padding-bottom:90px;border-top:1px solid #dfdfdf}
+/* 서브페이지 공통 */
+.btn_more{display:inline-block;padding:4px 7px 3px 9px;border:1px solid #c3c3c3;background:#fff;font-size:12px;color:#000;letter-spacing:-1px;vertical-align:middle}
+.btn_more .sp{width:8px;height:8px;margin:-2px 0 1px 3px;background-position:-54px -14px;vertical-align:middle}
+.btn_more_view{display:block;width:216px;height:50px;margin:0 auto;border:1px solid #c3c3c3;background:#fff;font-size:14px;font-weight:bold;color:#000}
+.btn_more_view .cnt{font-weight:normal;color:#555}
+/* 인풋 */
+.inp_selt{display:inline-block;*display:inline;position:relative;z-index:1;border:1px solid #d8d8d8;zoom:1}
+.inp_selt select{width:100%;height:100%;border:0;background:0}
+.inp_selt a{background:#fff;font-size:12px;color:#545454}
+.inp_selt .selt{display:block;position:relative;padding:7px 29px 5px 9px}
+.inp_selt .selt.open{background:#f1f1f1}
+.inp_selt .selt.open .arr{background-position:-64px -14px}
+.inp_selt .arr{position:absolute;top:11px;right:11px;width:7px;height:4px;background-position:-73px -14px}
+.inp_selt .selt_lst{display:none;position:absolute;top:26px;left:-1px;right:-1px;z-index:1;padding-bottom:8px;border:1px solid #d8d8d8;border-top:0;background:#fff}
+.inp_selt .selt_lst a{display:block;padding:8px 9px 5px}
+.inp_selt .selt_lst a:hover{text-decoration:underline}
+/* 그룹 : header */
+.group_header{margin-bottom:22px;background:url(img/tit_bd2.gif) repeat-x 0 50%;font-size:0;text-align:center}
+.group_header span{display:inline-block;margin-top:-3px;padding:0 20px;background:#f4f4f4;font-family:'Malgun Gothic';font-size:22px;color:#000;letter-spacing:-1px}
+/* 그룹 내 카드템플릿 */
+.sectionGroup{padding:25px 0}
+.sectionGroup .card_template_wrap{margin-top:50px}
+.tabGroup{padding-bottom:25px}
+.sectionGroup .card_template_wrap:first-child,
+.tabGroup .card_template_wrap:first-child,
+.group_header+.card_template_wrap{margin-top:0}
+.sectionGroup .card_template_wrap{position:relative;border:0;zoom:1}
+.sectionGroup .card_template_wrap:after{display:block;clear:both;content:''}
+.card_template_wrap .btn_more{position:absolute;top:25px;right:0}
+/* 카드템플릿 : 상품리스트 */
+.img_wrap{display:block;font-size:0}
+.img_wrap img{width:100%}
+.card_template2{overflow:hidden}
+.card_template2 .template{overflow:hidden;margin:-46px 0 0 -20px}
+.card_template2 li{float:left;position:relative;width:220px;margin:46px 0 0 20px}
+.card_template2 .in{display:block;zoom:1}
+.card_template2 .in:after{display:block;clear:both;content:''}
+.card_template2 .img_wrap{position:relative;height:220px}
+.card_template2 .img_wrap img{width:100%;height:100%}
+.card_template2 .img_label{position:absolute;top:3px;left:3px;width:42px;height:42px}
+.card_template2 .img_caption{position:relative;height:40px;padding:14px 0 24px;font-size:12px}
+.card_template2 .name{display:block;overflow:hidden;font-weight:normal;line-height:15px;white-space:nowrap;text-overflow:ellipsis}
+.card_template2 .name .label{display:inline-block;height:14px;margin-right:5px;padding:0 3px 0 2px;background:#aaa;font-size:11px;color:#fff;letter-spacing:-.5px}
+.card_template2 .name .brand{overflow:hidden;color:#000}
+.card_template2 .prdt_tit{overflow:hidden;margin-top:8px;color:#777;line-height:18px;text-overflow:ellipsis;white-space:nowrap}
+.card_template2 .prdt_tit .category{position:relative;margin-right:6px;padding-right:7px;font-weight:bold;color:#555}
+.card_template2 .prdt_tit .category .bar{position:absolute;top:1px;right:0;width:1px;height:9px;background:#ccc}
+.card_template2 .price{position:absolute;right:0;left:0;bottom:0;zoom:1}
+.card_template2 .price:after{display:block;clear:both;content:''}
+.card_template2 .price dd{float:left;margin-right:5px}
+.card_template2 .price .sale{font-weight:bold;color:#333}
+.card_template2 .price .sale_n{color:#999}
+.card_template2 .price .discount{font-weight:bold;color:#00bac1}
+.card_template2 .btn_wishlist{position:absolute;top:259px;right:0;width:25px;height:24px}
+.card_template2 .btn_wishlist .sp{width:25px;height:24px;background-position:0 0}
+.card_template2 .btn_wishlist.on .sp{background-position:-27px 0}
+.card_template2 .img_caption.outlet .discount{margin-top:-4px;font-size:16px;color:#dd4132}
+/* 띠배너 */
+.label_bnr{display:block;font-size:0}
+.label_bnr+.label_bnr{margin-top:10px}
+/* tab */
+.basic_tab{height:46px;border-bottom:2px solid #000;zoom:1}
+.basic_tab:after{display:block;clear:both;content:''}
+.basic_tab li{float:left;width:191px;margin:0 0 -2px -1px;border-bottom:2px solid #000;line-height:46px}
+.basic_tab li:first-child{width:190px;margin-left:0}
+.basic_tab a{display:block;height:45px;border:solid #c3c3c3;border-width:1px 1px 0;background:#f4f4f4;font-size:13px;color:#666;text-align:center}
+.basic_tab a span{font-size:12px;color:#adadad}
+.basic_tab .selected{position:relative;z-index:1}
+.basic_tab .selected a{height:46px;margin-bottom:-2px;border-width:2px 2px 0;border-color:#000;font-weight:bold;color:#000}
+.tab_cnt{position:relative}
+.tab_cnt .prdt_artbx{margin-top:25px}
+.tab_cnt .prdt_artbx .filter_result{position:absolute;top:-57px;right:0}
+.tab_cnt .basic_txt_btn{margin-top:23px}
+.tab_cnt .basic_btn_lst{margin-top:13px}
+.tab_cnt .basic_btn_lst2{margin-top:11px}
+.prdt_tab_cnt{padding-top:20px}
+.prdt_tab_cnt .card_template_wrap{border:0}
+.prdt_tab_cnt .btn_more{position:absolute;top:-35px;right:0}
+/* 스타일 카드 */
+.style_artbx{overflow:hidden;margin-top:29px}
+.style_artbx li{float:left;border:1px solid #ddd;width:312px;height:470px;margin-left:-1px}
+.style_artbx li:first-child{margin-left:0}
+.style_artbx a{display:block;height:100%;font-size:0}
+.style_artbx .img_wrap{height:100%}
+.style_artbx img{width:100%;height:100%}
+/* 필터 */
+.ft_bg{background:#f6f6f6}
+.filter_artbx{position:relative;border:1px solid #aaa;background:#fff;font-size:0}
+.filter_artbx .btn_filter{position:absolute;right:-1px;bottom:-28px;width:64px;height:28px;border:1px solid #aaa;background:#fff;font-size:0}
+.filter_artbx .btn_filter .sp{position:absolute;top:50%;left:50%;width:35px;height:13px;margin:-6px 0 0 -16px;background-position:-54px 0}
+.filter_artbx .btn_filter.open .sp{background-position:-91px 0}
+.filter_sort_wrap.sticky{width:940px;position:fixed;top:0;z-index:100;-webkit-overflow-scrolling:touch}
+.filter_sort_wrap.sticky .sort_artbx{background:#f4f4f4}
+.filter_result{display:block;margin-bottom:9px;padding-right:2px;font-size:12px;text-align:right}
+.filter_lst{zoom:1}
+.filter_lst:after{display:block;clear:both;content:''}
+.filter_lst>li{float:left;width:187px;max-height:290px;border-left:1px solid #e4e4e4}
+.filter_lst>li:first-child{width:186px;border-left:0}
+.filter_lst .filter_tit{padding:14px 26px 15px;font-size:12px;color:#000;line-height:14px;text-align:center;cursor:pointer}
+.filter_lst .filter_tit>span{display:inline-block;position:relative;padding:0 20px}
+/* sorting */
+.sort_artbx{padding:10px 0 12px;zoom:1}
+.sort_artbx:after{display:block;clear:both;content:''}
+.sort_artbx .inp_selt{float:left;width:179px}
+.view_filter{float:left;margin-right:10px;font-size:0}
+.view_filter button{position:relative;width:28px;height:28px;margin-left:-1px;border:1px solid #c3c3c3;background:#fff}
+.view_filter .sp{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px}
+.view_filter .select{z-index:1;border-color:#505050}
+.view_filter .card_type .sp{background-position:0 -42px}
+.view_filter .card_type.select .sp{background-position:-16px -42px}
+.view_filter .list_type .sp{background-position:0 -26px}
+.view_filter .list_type.select .sp{background-position:-16px -26px}
+.sort_artbx select{padding:6px 0;font-size:12px}
+/* 판매인기상품 */
+.prdt_artbx{padding:0 0 35px}
+.prdt_artbx .group_header{padding-top:35px}
+.prdt_artbx .card_template2 .prdt_tit{width:185px}
+.prdt_artbx .card_template2.type2{margin-top:0}
+.prdt_artbx .card_template2.type2 .prdt_tit{width:auto}
+.prdt_artbx .btn_more_view{margin-top:46px}
+.prdt_artbx .group_header{margin-bottom:-8px}
+.btn_top{position:fixed;right:20px;bottom:20px}
+.btn_top a{display:inline-block;padding:10px;background:#000;color:#fff;vertical-align:top}
+/* //temporary css */
+</style>
+</head>
+<body>
+<!-- wrapper [s] -->
+<div id="wrap">
+    <!-- header [s] -->
+    <div id="header" role="banner">header</div>
+    <!-- header [e] -->
+    <hr />
+    <!-- container [s] -->
+    <div id="container">
+        <div id="content" role="main">
+            <div class="tabGroup">
+                <ul class="basic_tab">
+                <li class="selected"><a href="#">신상품</a></li><!-- tab 선택된 경우 li에 클래스명 selected 추가해주세요 -->
+                <li><a href="#">MD'S PICK</a></li>
+                <li><a href="#">베스트</a></li>
+                </ul>
+                <div class="tab_cnt prdt_tab_cnt">
+                    <div class="card_template_wrap tmpl_24">
+                        <h3 class="blind">신상품</h3>
+                        <div class="card_template2">
+                            <ul class="template">
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap">
+                                        <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                        <img src="img/@prdt_thumb02.jpg" alt="">
+                                    </span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNOATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>236,600</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>338,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">30%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>9,999,999</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>9,999,999</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">99%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>3,539,100</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>3,599,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">75%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>3,539,100</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>3,599,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">75%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap">
+                                        <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                        <img src="img/@prdt_thumb02.jpg" alt="">
+                                    </span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>236,600</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>338,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">30%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>9,999,999</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>9,999,999</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">99%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>3,539,100</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>3,599,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">75%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="in">
+                                    <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                                    <div class="img_caption">
+                                        <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                        <p class="prdt_tit">화이트 펀칭셔링</p>
+                                        <dl class="price">
+                                        <dt class="blind">할인가</dt>
+                                        <dd class="sale"><ins>3,539,100</ins></dd>
+                                        <dt class="blind">가격</dt>
+                                        <dd class="sale_n"><del>3,599,000</del></dd>
+                                        <dt class="blind">할인율</dt>
+                                        <dd class="discount">75%</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn_more">더보기<span class="sp"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sectionGroup">
+                <div class="card_template_wrap">
+                    <a href="#" class="label_bnr tmpl_10001"><span class="img_wrap"><img src="img/label_banner01.jpg" alt="린넨, 이 여름 빼놓을 수 없는 너 Holic in 다운로드 쿠폰 + 마일리지 적립" width="940" height="90"></span></a>
+                </div>
+                <div class="card_template_wrap margin_none">
+                    <a href="#" class="label_bnr tmpl_10001"><span clas="img_wrap"><img src="img/label_banner02.jpg" alt="HAZZYS LADIES Spring SEASON OUT!" width="940" height="90"></span></a>
+                </div>
+            </div>
+            <div class="prdt_artbx">
+                <h3 class="group_header bgnone"><span>판매인기상품</span></h3>
+                <strong class="filter_result">1,000개 상품</strong>
+                <!-- [D] 브라우저 상단에 위치한 경우 클래스명 sticky 추가 -->
+                <div class="filter_sort_wrap">
+                    <div class="filter_artbx">
+                        <button type="button" class="btn_filter"><span class="sp">필터 열기</span></button>
+                        <div class="filter_lst_wrap">
+                            <ul class="filter_lst">
+                            <li class="category_area">
+                                <h4 class="filter_tit"><span>카테고리</span></h4>
+                                <div class="filter_cnt" style="display:none"></div>
+                            </li>
+                            <li>
+                                <h4 class="filter_tit"><span>브랜드</span></h4>
+                                <div class="filter_cnt" style="display:none"></div>
+                            </li>
+                            <li>
+                                <h4 class="filter_tit"><span>가격대</span></h4>
+                                <div class="filter_cnt" style="display:none"></div>
+                            </li>
+                            <li class="size_area">
+                                <h4 class="filter_tit"><span>사이즈</span></h4>
+                                <div class="filter_cnt" style="display:none"></div>
+                            </li>
+                            <li>
+                                <h4 class="filter_tit"><span>색상</span></h4>
+                                <div class="filter_cnt" style="display:none"></div>
+                            </li>
+                            </ul>
+                        </div>
+                        <div class="filter_select_area" style="display:none"></div>
+                    </div>
+                    <div class="sort_artbx">
+                        <div class="view_filter">
+                            <!-- [D]버튼 선택시 클래스명 select 추가 -->
+                            <button type="button" class="card_type select"><span class="sp">카드형으로 보기</span></button>
+                            <button type="button" class="list_type"><span class="sp">리스트형으로 보기</span></button>
+                        </div>
+                        <div class="inp_selt">
+                            <!-- [D]셀렉트 오픈된 경우 클래스명 open 추가 -->
+                            <a href="#" class="selt">판매인기순<span class="arr"></span></a>
+                            <!-- [D]셀렉트 오픈된 경우 display:block -->
+                            <ul class="selt_lst" style="display:none">
+                            <li><a href="#">신상품순</a></li>
+                            <li><a href="#">높은 가격순</a></li>
+                            <li><a href="#">낮은 가격순</a></li>
+                            <li><a href="#">할인율 높은순</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_template2">
+                    <ul class="template">
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap">
+                                <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                <img src="img/@prdt_thumb02.jpg" alt="">
+                            </span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>236,600</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>338,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">30%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <!-- [D]위시리스트에 담은 경우 클래스명 on 추가 및 문구 "위시리스트에 담기 비활성화 버튼"으로 변경 -->
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>9,999,999</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>9,999,999</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">99%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist on"><span class="sp">위시리스트에 담기 비활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap">
+                                <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                <img src="img/@prdt_thumb02.jpg" alt="">
+                            </span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>236,600</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>338,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">30%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <!-- [D]위시리스트에 담은 경우 클래스명 on 추가 및 문구 "위시리스트에 담기 비활성화 버튼"으로 변경 -->
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>9,999,999</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>9,999,999</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">99%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist on"><span class="sp">위시리스트에 담기 비활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap">
+                                <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                <img src="img/@prdt_thumb02.jpg" alt="">
+                            </span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>236,600</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>338,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">30%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <!-- [D]위시리스트에 담은 경우 클래스명 on 추가 및 문구 "위시리스트에 담기 비활성화 버튼"으로 변경 -->
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>9,999,999</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>9,999,999</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">99%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist on"><span class="sp">위시리스트에 담기 비활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap">
+                                <strong class="img_label"><img src="img/@prdt_label.jpg" alt="" width="42" height="42"></strong>
+                                <img src="img/@prdt_thumb02.jpg" alt="">
+                            </span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit"><span class="category">Regular<span class="bar"></span></span>화이트 펀칭셔링 디테일 원피스피스화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>236,600</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>338,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">30%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <!-- [D]위시리스트에 담은 경우 클래스명 on 추가 및 문구 "위시리스트에 담기 비활성화 버튼"으로 변경 -->
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링 디테일 원피스피스</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>9,999,999</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>9,999,999</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">99%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist on"><span class="sp">위시리스트에 담기 비활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    <li>
+                        <a href="#" class="in">
+                            <span class="img_wrap"><img src="img/@prdt_thumb02.jpg" alt=""></span>
+                            <div class="img_caption">
+                                <strong class="name"><span class="label">16SS</span><span class="brand">ATHEAVANESSABRUNO</span></strong>
+                                <p class="prdt_tit">화이트 펀칭셔링</p>
+                                <dl class="price">
+                                <dt class="blind">할인가</dt>
+                                <dd class="sale"><ins>3,539,100</ins></dd>
+                                <dt class="blind">가격</dt>
+                                <dd class="sale_n"><del>3,599,000</del></dd>
+                                <dt class="blind">할인율</dt>
+                                <dd class="discount">75%</dd>
+                                </dl>
+                            </div>
+                        </a>
+                        <button type="button" class="btn_wishlist"><span class="sp">위시리스트에 담기 활성화 버튼</span></button>
+                    </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn_more_view"><span>더보기<span class="cnt">(40/1000)</span></span></button>
+            </div>
+        </div>
+        <div class="btn_top"><a href="#">TOP버튼</a></div>
+    </div>
+    <!-- container [e] -->
+    <hr />
+    <!-- footer [s] -->
+    <div id="footer" role="contentinfo">footer</div>
+    <!-- footer [e] -->
+<!-- [ Javascript Area ] -->
+<!-- Libs -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="../js/apps/util.js"></script>
+</div>
+</body>
+</html>
