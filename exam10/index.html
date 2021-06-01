@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>BTO</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<!--/* component css */-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- component -->
+    <div class="type-dark">
+        <!-- [F] 모바일 visual 버튼 클릭시 is-opened 클래스 추가,
+            summary 버튼 클릭시 is-dimmed 클래스 추가 -->
+        <div class="site-build-order">
+            <div class="build-order-content">
+                <div class="build-order-content__full-view">
+                    <div class="build-order-visual">
+                        <!-- 견적완료 -->
+                        <!-- [F] 견적완료 스텝일때 .site-build-order에 is-expand 클래스 추가 -->
+                        <div class="build-order-visual__wrap step-complete">
+                            <div class="build-order-visual__item" data-animate-type="result">
+                                <div class="build-type-visual">
+                                    <div class="build-result-wrapper">
+                                        <div class="build-result-hero">
+                                            <div class="build-result-hero__inner">
+                                                <!-- 2020-08-03 수정 -->
+                                                <div class="build-result-hero__content">
+                                                    <div class="build-result-hero__img">
+                                                        <img src="imgs/@result_bto.png" alt="">
+                                                    </div>
+                                                    <div class="build-result-hero__text">
+                                                        <div class="build-result-hero__title">
+                                                            <h2 class="el-title">2020 Genesis <span class="point">GV80</span></h2>
+                                                            <p class="el-text">3.0 디젤 / 2WD 7인승 / 20인치 휠</p>
+                                                        </div>
+                                                        <div class="build-result-hero__info">
+                                                            <div class="build-result-hero__price">
+                                                                <span class="point">예상 견적가  </span>
+                                                                <strong class="total-price">120,800,000<span>원</span></strong>
+                                                            </div>
+                                                            <!-- <div class="build-result-hero__options">
+                                                                <p>3.0 디젤 / 2WD 7인승 / 20인치 휠</p>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="build-result-hero__desc">
+                                                    <p>* 차량의 이미지는 실제 차량과 다를 수 있습니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="build-result-detail">
+                                            <div class="build-result-detail__list">
+                                                <div class="build-result-header">
+                                                    <h3 class="build-result-header-title">상세견적</h3>
+                                                    <div class="detail-util">
+                                                        <ul>
+                                                        <li>
+                                                            <button type="button" class="btn-util btn-refresh">
+                                                                <span class="util-ico"></span>
+                                                                <span class="util-text">재견적</span>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" class="btn-util btn-print">
+                                                                <span class="util-ico"></span>
+                                                                <span class="util-text">Print</span>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" class="btn-util btn-pdf">
+                                                                <span class="util-ico"></span>
+                                                                <span class="util-text">PDF</span>
+                                                            </button>
+                                                        </li>
+                                                        <li class="item-share js-util-share">
+                                                            <button type="button" class="btn-util btn-share" aria-expanded="false">
+                                                                <span class="util-btn-default">
+                                                                    <span class="util-ico"></span>
+                                                                    <span class="util-text">Share</span>
+                                                                </span>
+                                                                <span class="util-btn-close">
+                                                                    <span class="util-ico js-svg-icon" data-icon="svg-cross"></span>
+                                                                    <span class="util-text"><span class="blind">Close</span>Share</span>
+                                                                </span>
+                                                            </button>
+                                                            <ul class="util-list" role="menu">
+                                                            <li role="presentation"><a href="#" role="menuitem"><span class="js-svg-icon" data-icon="svg-facebook"></span><span class="blind">Facebook</span></a></li>
+                                                            <li role="presentation"><a href="#" role="menuitem"><span class="js-svg-icon" data-icon="svg-twitter"></span><span class="blind">Twitter</span></a></li>
+                                                            <li role="presentation">
+                                                                <a href="#" role="menuitem" class="cm-clipboard__btn"><span class="ico-util-url"></span><span class="blind">URL</span></a>
+                                                                <input type="text" class="cm-clipboard__input">
+                                                                <div class="cm-clipboard__alert show-mo">
+                                                                    <div class="cm-clipboard__alert-area">
+                                                                        <p>Copied to clipboard</p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            </ul>
+                                                            <div class="cm-clipboard__alert show-pc">
+                                                                <div class="cm-clipboard__alert-area">
+                                                                    <p>Copied to clipboard</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="build-result-detail__content">
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top type-only-text">
+                                                            <strong class="detail-title">기본 가격</strong>
+                                                            <span class="option-price">+ 65,800,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">엔진 타입</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@option1.jpg" alt=""> <span class="option-name">3.0 디젤</span></div>
+                                                            <span class="option-price">+ 0 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">구동 타입</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@option2.jpg" alt=""><span class="option-name">AWD with E-LSD</span></div>
+                                                            <span class="option-price">+ 3,500,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">인승 타입</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@option3.jpg" alt=""><span class="option-name">7인승</span></div>
+                                                            <span class="option-price">+ 1,000,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">외장 컬러</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@color1.jpg" alt=""><span class="option-name">카디프 그린</span></div>
+                                                            <span class="option-price">+ 700,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">휠 &amp; 타이어</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@option4.jpg" alt=""><span class="option-name">22인치</span></div>
+                                                            <span class="option-price">+ 1,800,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">내장 컬러</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@color2.jpg" alt=""><span class="option-name">어반 브라운/ 바닐라 베이지 투톤</span></div>
+                                                            <span class="option-price">+ 1,800,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">인테리어 옵션</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="detail-box"><img src="imgs/@pattern1.jpg" alt=""><span class="option-name">리얼 알루미늄(시그니쳐 디자인 셀렉션)</span></div>
+                                                            <span class="option-price">+ 700,000 원</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row has-list">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">선택 옵션</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="option-list">
+                                                                <span class="option-name">파퓰러 패키지</span>
+                                                                <span class="option-price">+ 700,000 원</span>
+                                                            </div>
+                                                            <div class="option-list">
+                                                                <span class="option-name">헤드업 디스플레이</span>
+                                                                <span class="option-price">+ 700,000 원</span>
+                                                            </div>
+                                                            <div class="option-list">
+                                                                <span class="option-name">차량보호필름 &amp; 프로텍션 매트 패키지</span>
+                                                                <span class="option-price">+ 600,000 원</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row has-list">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">파츠</strong>
+                                                            <a href="#" class="btn-edit">변경</a>
+                                                        </div>
+                                                        <div class="detail-row-bottom">
+                                                            <div class="option-list">
+                                                                <span class="option-name">차량보호필름 &amp; 프로텍션 패키지</span>
+                                                                <span class="option-price">+ 600,000 원</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-row type-total">
+                                                        <div class="detail-row-top">
+                                                            <strong class="detail-title">예상 견적가</strong>
+                                                            <strong class="total-price">120,800,000<span>원</span></strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="build-result-detail__overview">
+                                                <div class="overview-cta">
+                                                    <a href="#" class="cm-btn" target="_blank" title="Open in a new window">
+                                                        <span class="text">구매상담 신청</span>
+                                                        <span class="masker"><span>구매상담 신청</span></span>
+                                                    </a>
+                                                    <a href="#" class="cm-btn type-white" target="_blank" title="Open in a new window">
+                                                        <span class="text">시승신청</span>
+                                                        <span class="masker"><span>시승신청</span></span>
+                                                    </a>
+                                                </div>
+                                                <div class="overview-links">
+                                                    <div class="btn-box-wrap">
+                                                        <div class="btn-box">
+                                                            <a href="#" class="cm-btn-more is-hover is-default" target="_blank" title="Open in a new window"><span>모델 정보 보기</span></a>
+                                                        </div>
+                                                        <div class="btn-box">
+                                                            <a href="#" class="cm-btn-more is-hover is-default" target="_blank" title="Open in a new window"><span>이달의 구매 프로그램 안내</span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-box-wrap">
+                                                        <div class="btn-box">
+                                                            <a href="#" class="cm-btn-more is-hover is-default" target="_blank" title="Open in a new window"><span>브로슈어 다운로드</span></a>
+                                                        </div>
+                                                        <div class="btn-box">
+                                                            <a href="#" class="cm-btn-more is-hover is-default" target="_blank" title="Open in a new window"><span>멤버십 혜택 안내</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="overview-email">
+                                                    <span class="overview-email-title">견적서 이메일 보내기</span>
+                                                    <div class="cm-input-wrap">
+                                                        <div class="cm-input-text js-bo-input-text-wrap">
+                                                            <input type="text" id="inp1" name="inpTxt" class="cm-input-text__input">
+                                                            <label for="inp1" class="cm-input-text__label" style="display: block;">이메일 주소를 입력하세요</label>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn-email">보내기</button>
+                                                </div>
+                                                <div class="overview-disclaimer">
+                                                    <ul>
+                                                    <li>상기 이미지는 실제 차량과 사양 및 컬러가 다를 수 있으므로 전시장 방문 및 실차 확인을 권장합니다.</li>
+                                                    <li>일부 이미지는 대표 등급 기준으로 연출되었으며 추후 사전예고 없이 변경이나 업데이트가 될 수 있습니다.</li>
+                                                    <li>본 견적내용은 고객의 편의를 위한 간편 견적으로, 계약 시 변경될 수 있으며, 법적 구속력은 없습니다. 탁송료, 할부 등 상세 견적 내용은 지점/대리점을 통해 확인바랍니다.</li>
+                                                    <li>주문생산방식으로 계약된 차량의 경우 최소 45일 납기를 예상합니다.</li>
+                                                    <li>현재 화면에서 보신 유사재고 상세 내용은 계속해서 업데이트되오니 지점/대리점에 최종 확인이 필요합니다.</li>
+                                                    <li>GV80 악세사리 상품인 사이드 스텝, 차량보호필름&프로텍션 매트패키지는 지점/대리점에 문의 바랍니다.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="build-result-recommended">
+                                            <div class="build-result-recommended__inner">
+                                                <div class="build-result-header">
+                                                    <div class="build-result-header-top">
+                                                        <h3 class="build-result-header-title">유사 차량 조회</h3>
+                                                        <a href="#" class="cm-btn-more is-hover is-default" title="Learn more"><span>더보기</span></a>
+                                                    </div>
+                                                    <p class="build-result-header-desc">선택하신 차량 및 옵션을 기준으로한 유사차량 정보입니다. (2020.06.15 오후 12시 기준)</p>
+                                                </div>
+                                                <div class="swiper-container-wrapper">
+                                                    <div class="swiper-container">
+                                                        <div class="build-result-recommended__list swiper-wrapper">
+                                                            <div class="build-result-recommended__item swiper-slide">
+                                                                <div class="slide-inner">
+                                                                    <div class="content-box">
+                                                                        <div class="build-result-recommended__item-img">
+                                                                            <img src="http://via.placeholder.com/540x312" alt="">
+                                                                        </div>
+                                                                        <div class="build-result-recommended__item-text">
+                                                                            <div class="text-box">
+                                                                                <strong class="item-title">GV80</strong>
+                                                                                <em class="cm-label type-white"><span class="text">유사도 98%</span></em>
+                                                                            </div>
+                                                                            <p class="item-desc"><span>3.0 Diesel</span><span>2WD</span><span>5인승</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-info">
+                                                                        <ul>
+                                                                        <li><span class="option-name">휠</span><p class="option-desc">19 인치</p></li>
+                                                                        <li><span class="option-name">외장색</span><p class="option-desc">카본 메탈</p></li>
+                                                                        <li><span class="option-name">내장색</span><p class="option-desc">옵시디언 블랙 모노톤(블랙 하이그로시)</p></li>
+                                                                        <li><span class="option-name">패키지 &amp; 옵션</span><p class="option-desc">무옵션</p></li>
+                                                                        <li><span class="option-name">차량코드</span><p class="option-desc">JXJJ5DAT1A01N5MNNB</p></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-cta">
+                                                                        <a href="#" class="cm-btn" target="_blank" title="Open in a new window">
+                                                                            <span class="text">구매상담 신청</span>
+                                                                            <span class="masker"><span>구매상담 신청</span></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="build-result-recommended__item swiper-slide">
+                                                                <div class="slide-inner">
+                                                                    <div class="content-box">
+                                                                        <div class="build-result-recommended__item-img">
+                                                                            <img src="http://via.placeholder.com/540x312" alt="">
+                                                                        </div>
+                                                                        <div class="build-result-recommended__item-text">
+                                                                            <div class="text-box">
+                                                                                <strong class="item-title">GV80</strong>
+                                                                                <em class="cm-label type-white"><span class="text">유사도 98%</span></em>
+                                                                            </div>
+                                                                            <p class="item-desc"><span>3.5 Turbo</span><span>AWD + ELSD</span><span>7인승</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-info">
+                                                                        <ul>
+                                                                        <li><span class="option-name">휠</span><p class="option-desc">19 인치</p></li>
+                                                                        <li><span class="option-name">외장색</span><p class="option-desc">카본 메탈</p></li>
+                                                                        <li><span class="option-name">내장색</span><p class="option-desc">옵시디언 블랙 모노톤(블랙 하이그로시)</p></li>
+                                                                        <li><span class="option-name">패키지 &amp; 옵션</span><p class="option-desc">무옵션</p></li>
+                                                                        <li><span class="option-name">차량코드</span><p class="option-desc">JXJJ5DAT1A01N5MNNB</p></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-cta">
+                                                                        <a href="#" class="cm-btn" target="_blank" title="Open in a new window">
+                                                                            <span class="text">구매상담 신청</span>
+                                                                            <span class="masker"><span>구매상담 신청</span></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="build-result-recommended__item swiper-slide">
+                                                                <div class="slide-inner">
+                                                                    <div class="content-box">
+                                                                        <div class="build-result-recommended__item-img">
+                                                                            <img src="http://via.placeholder.com/540x312" alt="">
+                                                                        </div>
+                                                                        <div class="build-result-recommended__item-text">
+                                                                            <div class="text-box">
+                                                                                <strong class="item-title">GV80</strong>
+                                                                                <em class="cm-label type-white"><span class="text">유사도 98%</span></em>
+                                                                            </div>
+                                                                            <p class="item-desc"><span>3.0 Diesel</span><span>AWD + ELSD</span><span>5인승</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-info">
+                                                                        <ul>
+                                                                        <li><span class="option-name">휠</span><p class="option-desc">19 인치</p></li>
+                                                                        <li><span class="option-name">외장색</span><p class="option-desc">카본 메탈</p></li>
+                                                                        <li><span class="option-name">내장색</span><p class="option-desc">옵시디언 블랙 모노톤(블랙 하이그로시)</p></li>
+                                                                        <li><span class="option-name">패키지 &amp; 옵션</span><p class="option-desc">무옵션</p></li>
+                                                                        <li><span class="option-name">차량코드</span><p class="option-desc">JXJJ5DAT1A01N5MNNB</p></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-cta">
+                                                                        <a href="#" class="cm-btn" target="_blank" title="Open in a new window">
+                                                                            <span class="text">구매상담 신청</span>
+                                                                            <span class="masker"><span>구매상담 신청</span></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="build-result-recommended__item swiper-slide">
+                                                                <div class="slide-inner">
+                                                                    <div class="content-box">
+                                                                        <div class="build-result-recommended__item-img">
+                                                                            <img src="http://via.placeholder.com/540x312" alt="">
+                                                                        </div>
+                                                                        <div class="build-result-recommended__item-text">
+                                                                            <div class="text-box">
+                                                                                <strong class="item-title">GV80</strong>
+                                                                                <em class="cm-label type-white"><span class="text">유사도 98%</span></em>
+                                                                            </div>
+                                                                            <p class="item-desc"><span>3.0 Diesel</span><span>AWD + ELSD</span><span>5인승</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-info">
+                                                                        <ul>
+                                                                        <li><span class="option-name">휠</span><p class="option-desc">19 인치</p></li>
+                                                                        <li><span class="option-name">외장색</span><p class="option-desc">카본 메탈</p></li>
+                                                                        <li><span class="option-name">내장색</span><p class="option-desc">옵시디언 블랙 모노톤(블랙 하이그로시)</p></li>
+                                                                        <li><span class="option-name">패키지 &amp; 옵션</span><p class="option-desc">무옵션</p></li>
+                                                                        <li><span class="option-name">차량코드</span><p class="option-desc">JXJJ5DAT1A01N5MNNB</p></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="build-result-recommended__item-cta">
+                                                                        <a href="#" class="cm-btn" target="_blank" title="Open in a new window">
+                                                                            <span class="text">구매상담 신청</span>
+                                                                            <span class="masker"><span>구매상담 신청</span></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- If we need pagination -->
+                                                        <div class="swiper-pagination"></div>
+                                                        <!-- If we need navigation buttons -->
+                                                        <div class="swiper-button-prev"><button type="button"><span class="blind">Previous Slide</span></button></div>
+                                                        <div class="swiper-button-next"><button type="button"><span class="blind">Next Slide</span></button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //견적완료 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //component -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="../js/libs/libs.00.swiper-5.3.7.js"></script>
+<script src="../js/apps/util.js"></script>
+<script>
+(function (global, factory) {
+    global = global;
+    global.swiperComponent = factory();
+}(window, function () {
+    'use strict';
+    var swiperComponent = (function (isUndefined) {
+        var win = window,
+            Util = win.Common.util;
+
+        function swiperComponent (container, args) {
+            var defParams = {
+                obj : container,
+                swiperOpts : {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 30
+                        },
+                        1280: {
+                            slidesPerView: 3,
+                            spaceBetween: 40
+                        }
+                    }
+                }
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        swiperComponent.prototype = {
+            init : function () {
+                this.buildSwiper();
+            },
+            buildSwiper : function () {
+                var swiper = new Swiper(this.obj, this.opts.swiperOpts);
+            }
+        };
+        return swiperComponent;
+    })();
+    return swiperComponent;
+}));
+(function (global, factory) {
+    global = global;
+    $(function () {
+        factory();
+    })
+}(window, function () {
+    'use strict';
+    var swiperComponent = (function () {
+        var win = window,
+            Util = win.Common.util;
+
+        function swiperComponent (args) {
+            var defParams = {
+                obj : '.swiper-container'
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        swiperComponent.prototype = {
+            init : function () {
+                this.callComponent();
+            },
+            callComponent : function () {
+                var _this = this;
+                for (var i = 0, max = this.obj.length; i < max; i++) {
+                    (function (index) {
+                        var instance = new win.swiperComponent(_this.obj.eq(index));
+                    })(i);
+                }
+            }
+        };
+        return new swiperComponent();
+    })();
+    return swiperComponent;
+}));
+</script>
+</div>
+</body>
+</html>
