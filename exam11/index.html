@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Big Quote</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="wrap">
+    <div style="height: 500px"></div>
+
+    <!-- component -->
+    <!--/* 기본 - PC 이미지 2개 노출 & 태블릿/모바일 이미지 1개 노출
+           [D] PC,TB,MO에서 이미지 미노출일 경우 : is-no-image 클래스 추가 */-->
+    <div class="type-light">
+        <div class="cp-bigquote">
+            <div class="cp-bigquote__inner">
+                <div class="cp-bigquote__parallax">
+                    <div class="cp-bigquote__parallax-wrap">
+                        <div class="cp-bigquote__parallax-space">
+                            <div class="cp-bigquote__parallax-inner">
+                                <div class="cp-bigquote__contents">
+                                    <div class="cp-bigquote__textarea parallax-text">
+                                        <div class="cp-bigquote__eyebrow">
+                                            <p class="el-eyebrow">Genesis global text</p>
+                                        </div>
+                                        <div class="cp-bigquote__desc">
+                                            <p class="el-desc">We strive to create the finest automobiles and related products and services for connoisseurs around the globe</p>
+                                        </div>
+                                        <div class="cp-bigquote__cta">
+                                            <a href="#" class="cm-btn type2 type-white">
+                                                <span class="text">Primary Button</span>
+                                                <span class="masker"><span>Primary Button</span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="cp-bigquote__img-right parallax-img-right">
+                                        <div class="js-picture">
+                                            <img src="http://via.placeholder.com/568x718" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cp-bigquote__img-left parallax-img-left">
+                                    <div class="js-picture">
+                                        <img src="http://via.placeholder.com/660x330" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //component -->
+
+    <!-- component -->
+    <!--/* 기본 - PC 이미지 2개 노출 & 태블릿/모바일 이미지 1개 노출
+           [D] PC,TB,MO에서 이미지 미노출일 경우 : is-no-image 클래스 추가 */-->
+    <div class="type-dark">
+        <div class="cp-bigquote">
+            <div class="cp-bigquote__inner">
+                <div class="cp-bigquote__parallax">
+                    <div class="cp-bigquote__parallax-wrap">
+                        <div class="cp-bigquote__parallax-space">
+                            <div class="cp-bigquote__parallax-inner">
+                                <div class="cp-bigquote__contents">
+                                    <div class="cp-bigquote__textarea parallax-text">
+                                        <div class="cp-bigquote__eyebrow">
+                                            <p class="el-eyebrow">Genesis global text</p>
+                                        </div>
+                                        <div class="cp-bigquote__desc">
+                                            <p class="el-desc">We strive to create the finest automobiles and related products and services for connoisseurs around the globe</p>
+                                        </div>
+                                        <div class="cp-bigquote__cta">
+                                            <a href="#" class="cm-btn type2 type-white">
+                                                <span class="text">Primary Button</span>
+                                                <span class="masker"><span>Primary Button</span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="cp-bigquote__img-right parallax-img-right">
+                                        <div class="js-picture">
+                                            <img src="http://via.placeholder.com/568x718" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cp-bigquote__img-left parallax-img-left">
+                                    <div class="js-picture">
+                                        <img src="http://via.placeholder.com/660x330" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //component -->
+</div>
+<div style="height: 100vh;background:orange"></div>
+<!--/* component js */-->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="../js/apps/util.js"></script>
+<script src="../js/libs/main2.lib2.vendor.ScrollMagic-2.0.7.js"></script>
+<script src="../js/libs/main2.lib1.vendor.TweenMax.2.1.3.js"></script>
+<script src="../js/libs/main2.lib3.vendor.animation.gsap.js"></script>
+<script>
+(function (global, factory) {
+    global = global;
+    global.scrollComponent = factory();
+}(window, function () {
+    'use strict';
+    var scrollComponent = (function (isUndefined) {
+        var win = window,
+            Util = win.Common.util;
+
+        function scrollComponent (container, args) {
+            var defParams = {
+                obj : container,
+                parallaxSection : '.cp-bigquote__parallax',
+                parallaxWrap : '.cp-bigquote__parallax-wrap',
+                parallaxSpace : '.cp-bigquote__parallax-space',
+                parallaxInner : '.cp-bigquote__parallax-inner',
+                parallaxTxt : '.parallax-text',
+                parallaxImgLeft : '.parallax-img-left',
+                parallaxImgRight : '.parallax-img-right',
+                smagicOpts : {
+                    triggerHook : 0
+                },
+                customEvent : '.Component' + (new Date()).getTime() + Math.random(),
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        scrollComponent.prototype = {
+            init : function () {
+                this.setElements();
+                this.initOpts();
+                this.buildController();
+                this.buildScene();
+            },
+            setElements : function () {
+                this.parallaxSection = this.obj.find(this.opts.parallaxSection);
+                this.parallaxWrap = this.parallaxSection.find(this.opts.parallaxWrap);
+                this.parallaxSpace = this.parallaxWrap.find(this.opts.parallaxSpace);
+                this.parallaxInner = this.parallaxSpace.find(this.opts.parallaxInner);
+                this.parallaxTxt = this.parallaxInner.find(this.opts.parallaxTxt);
+                this.parallaxImgLeft = this.parallaxInner.find(this.opts.parallaxImgLeft);
+                this.parallaxImgRight = this.parallaxInner.find(this.opts.parallaxImgRight);
+            },
+            initOpts : function () {
+                this.opts.smagicOpts['triggerElement'] = this.parallaxSection.get(0);
+                var minHeight = this.parallaxInner.outerHeight(true);
+                this.parallaxWrap.css('min-height', minHeight);
+            },
+            changeEvents : function (event) {
+                var events = [],
+                    eventNames = event.split(' ');
+                for (var key in eventNames) {
+                    events.push(eventNames[key] + this.opts.customEvent);
+                }
+                return events.join(' ');
+            },
+            buildController : function () {
+                this.controller = new ScrollMagic.Controller();
+            },
+            buildScene : function () {
+                var parallaxTxt = this.parallaxTxt,
+                    parallaxImgLeft = this.parallaxImgLeft,
+                    parallaxImgRight = this.parallaxImgRight,
+                    smagicOpts = this.opts.smagicOpts;
+
+                var sectionBox = new TimelineMax();
+                sectionBox.fromTo(parallaxTxt.get(0), 1, {
+                    y : "0%"
+                }, {
+                    ease: Linear.easeNone,
+                    y : "0%"
+                })
+                .to(parallaxTxt.get(0), 2, {
+                    ease: Linear.easeNone,
+                    y : "0%"
+                });
+                new ScrollMagic.Scene(Util.def(smagicOpts, {
+                    duration: '125%'
+                })).addTo(this.controller).setPin(this.parallaxSection.get(0)).setTween(sectionBox);
+
+                var leftBox = new TimelineMax();
+                leftBox.fromTo(parallaxImgLeft.get(0), 1, {
+                    y : "0%"
+                }, {
+                    ease : Linear.easeNone,
+                    opacity : 0,
+                    y : "-300%"
+                });
+                new ScrollMagic.Scene(Util.def(smagicOpts, {
+                    duration: '150%'
+                })).addTo(this.controller).setTween(leftBox);
+
+                var rightBox = new TimelineMax();
+                rightBox.fromTo(parallaxImgRight.get(0), 1, {
+                    y : "0%"
+                }, {
+                    ease : Linear.easeNone,
+                    opacity : 0,
+                    y : "-200%"
+                });
+                new ScrollMagic.Scene(Util.def(smagicOpts, {
+                    duration: '125%'
+                })).addTo(this.controller).setTween(rightBox);
+            }
+        };
+        return scrollComponent;
+    })();
+    return scrollComponent;
+}));
+(function (global, factory) {
+    global = global;
+    $(function () {
+        factory();
+    })
+}(window, function () {
+    'use strict';
+    var scrollComponent = (function () {
+        var win = window,
+            Util = win.Common.util;
+
+        function scrollComponent (args) {
+            var defParams = {
+                obj : '.cp-bigquote'
+            };
+            this.opts = Util.def(defParams, (args || {}));
+            if (!(this.obj = $(this.opts.obj)).length) return;
+            this.init();
+        };
+        scrollComponent.prototype = {
+            init : function () {
+                this.callComponent();
+            },
+            callComponent : function () {
+                var _this = this;
+                for (var i = 0, max = this.obj.length; i < max; i++) {
+                    (function (index) {
+                        var instance = new win.scrollComponent(_this.obj.eq(index));
+                    })(i);
+                }
+            }
+        };
+        return new scrollComponent();
+    })();
+    return scrollComponent;
+}));
+</script>
+</body>
+</html>
