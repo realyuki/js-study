@@ -176,14 +176,7 @@
                     smagicOpts = this.opts.smagicOpts;
 
                 var sectionBox = new TimelineMax();
-                sectionBox.fromTo(parallaxTxt.get(0), 1, {
-                    y : "0%"
-                }, {
-                    ease: Linear.easeNone,
-                    y : "0%"
-                })
-                .to(parallaxTxt.get(0), 2, {
-                    ease: Linear.easeNone,
+                sectionBox.to(parallaxTxt.get(0), 0, {
                     y : "0%"
                 });
                 new ScrollMagic.Scene(Util.def(smagicOpts, {
